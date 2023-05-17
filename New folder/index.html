@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+        <section class="nav">
+            <nav>
+                <h1 class="logo">MY<span class="shop-1">SHOP</span></h1>
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="#">STORE</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <div class="header">
+            <div class="left">
+                <h1> <span class="exp">EXPERIENCE FASHION </span>AT ITS <br> FINEST IN OUR CLOTH STORE</h1>
+                <button class="shop">SHOP NOW</button>
+            </div>
+            <div class="right">
+                <img class="model" src="Frame 2.png" alt="model" >
+                <div class="redcircle"></div>
+            </div>
+        </div>
+
+        <div class="cont-store">
+            <h1 class="st-1">STORE</h1>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="SEARCH ITEMS"> 
+                <span class="clear-button">&#10006;</span>
+                <script>
+                    const searchInput = document.querySelector('.search-input');
+                    const clearButton = document.querySelector('.clear-button');
+                  
+                    clearButton.addEventListener('click', function() {
+                      searchInput.value = '';
+                    });
+                    // const searchInput = document.querySelector('.search-input');
+                    //  const clearButton = document.querySelector('.clear-button');
+
+                    clearButton.addEventListener('click', function() {
+                        searchInput.value = '';
+                    });
+
+                    searchInput.addEventListener('keyup', function(event) {
+                        if (event.keyCode === 13) { // Enter key pressed
+                        saveSearchHistory(searchInput.value);
+                        }
+                    });
+
+                    function saveSearchHistory(searchValue) {   
+                        let searchHistory = localStorage.getItem('searchHistory');
+                        if (searchHistory) {
+                        searchHistory = JSON.parse(searchHistory);
+                        } else {
+                        searchHistory = [];
+                        }
+
+                        searchHistory.push(searchValue);
+                        localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+                    }
+
+                    function retrieveSearchHistory() {
+                        const searchHistory = localStorage.getItem('searchHistory');
+                        if (searchHistory) {
+                        const searchHistoryArray = JSON.parse(searchHistory);
+                        console.log(searchHistoryArray); // You can perform desired actions with the search history array
+                        }
+                    }
+
+                    retrieveSearchHistory();
+                  </script>
+            </div>
+            <div class="cont-store1">
+                <div class="first">
+                    <div class="st-left">
+                        <img class="shirt" src="shirt.jpg" alt="shirt">
+                    </div>
+                    <div class="st-right">
+                        <p><span class="clothdetail">TSHIRT</span></p>
+                        <p>Price: $100</p>
+                        <button class="minus">-</button> <span class="num">0</span> <button class="plus">+</button><br>
+                        <button class="cart">ADD TO CART</button>
+                        <script>
+                            const plus = document.querySelector(".plus"),
+                                minus = document.querySelector(".minus"),
+                                num = document.querySelector(".num");
+
+                                let a = 0;
+                                plus.addEventListener("click",()=>{
+                                    a++;
+                                    num.innerText = a;
+                                    console.log(a);
+
+                                })
+                                
+                                minus.addEventListener("click",()=>{
+                                    a--;
+                                    num.innerText = a;
+                                    console.log(a);
+                                })
+                        </script>
+                    </div>
+                </div>
+
+                <div class="first">
+                    <div class="st-left">
+                        <img class="shirt" src="img2.png" alt="shirt">
+                    </div>
+                    <div class="st-right">
+                        <p> <span class="clothdetail">JACKET</span></p>
+                        <p>Price: $250</p>
+                        <button class="minus">-</button> <span class="num">0</span> <button class="plus">+</button><br>
+                        <button class="cart">ADD TO CART</button>
+                        <script>
+                            const pluss = document.querySelector(".plus"),
+                                minuss = document.querySelector(".minus"),
+                                numm = document.querySelector(".num");
+
+                                let aa = 0;
+                                plus.addEventListener("click",()=>{
+                                    aa++;
+                                    num.innerText = aa;
+                                    console.log(aa);
+
+                                })
+                                
+                                minus.addEventListener("click",()=>{
+                                    aa--;
+                                    num.innerText = aa;
+                                    console.log(aa);
+                                })
+                        </script>
+                    </div>
+                </div>
+
+                
+                
+            </div>
+            
+        </div>
+    
+</body>
+</html>
